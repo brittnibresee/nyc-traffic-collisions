@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NYC Collision Dashboard</title>
+  <link rel="icon" type="image/x-icon" href="https://img.icons8.com/ios-glyphs/16/000000/new-york--v2.png">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+
+  <!-- Marker cluster CSS -->
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+  
+  <!-- Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+</head>
+
+<body style="background-color: rgb(46, 46, 48); padding: 0 10px;">
+  <div>
+    <div>
+      <div class="title">
+        <img src="https://img.icons8.com/ios-glyphs/60/ffd700/new-york--v2.png"/> NYC Collision Dashboard
+      </div>
+      <div class="rightArea">
+        <a href="http://127.0.0.1:5000/data" style="padding-right: 30px;"> Collision Data</a>
+        <a href="http://127.0.0.1:5000/boroughs"> Borough Data</a> <br>
+        <label style="color: whitesmoke" id="search"> Enter a Geocoordinate: [<input type="text" id="userInput" placeholder="lat, lon">] </label>
+        <button id="myButton" onclick="zoomMap(event, document.getElementById('userInput').value)">Zoom In</button>
+      </div>
+    </div>
+
+    <!--Tab links-->
+    <div class="tab">
+      <button class="tablinks active" onclick="openChart(event, 'map'), openChart(event, 'bar'), openChart(event, 'chartContainer')">Collision Distribution </button>
+      <button class="tablinks" onclick="openChart(event, 'line')">Injuries vs. Time</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="chartContainer"class="tabcontent" style="display: flex;">
+      <div id="map"></div>
+      <div id="bar"></div>
+    </div>
+
+    <div id="line" class="tabcontent"></div>
+      
+  </div>
+  <!-- Plotly-->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+
+  <!-- D3 JavaScript -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- Marker cluster JavaScript code -->
+  <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
+    
+  <!-- Our JavaScript -->
+  <script type="text/javascript" src="static/js/logic.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
+
+  <!-- Moment JavaScript - datetime-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+  <script>
+    function openChart(event, chartName) {
+      var tabcontent = document.getElementsByClassName("tabcontent");
+      for (var i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      var tablinks = document.getElementsByClassName("tablinks");
+      for (var i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "")
+      }
+
+      document.getElementById(chartName).style.display = "flex";
+      event.currentTarget.className += " active";
+    }
+  </script>
+</body>
+
+</html>

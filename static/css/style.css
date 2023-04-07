@@ -1,0 +1,91 @@
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    background-color: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: rgb(71, 71, 71);
+    color: whitesmoke;
+    float: center;
+    border: none;
+    padding: 12px 30px;
+    transition: 0.3s;
+    border-radius: 12px 12px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: rgb(52, 64, 108);
+    color: rgba(255, 240, 156, 0.75)
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: rgb(38, 51, 100);
+    color: rgb(255, 215, 0)
+}
+
+.tabcontent {
+    display: none;
+    border-radius: 0 0 6px 6px;
+    height: 500px;
+    position: relative;
+}
+
+/*Style title */
+.title {
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: xx-large;
+    color: rgb(255, 215, 0);
+    padding: 7px 10px 7px 7px;
+}
+
+/*Style the right area of the title content (links) */
+.rightArea {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 37px 20px 2px 20px;
+    text-align: right;
+}
+
+#userInput {
+    margin-top: 15px;
+    color: rgb(30, 30, 30)
+}
+
+#map {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px 0px 0px 5px;
+    margin-top: 10px;
+    height: 600px;
+    width: 700px;
+    border-radius: 6px 6px;
+}
+
+#bar {
+    position: absolute;
+    left: 750px;
+    top: 0;
+    padding: 2px 0px;
+    height: 600px;
+    width: 550px;
+}
+
+#line {
+    position: absolute;
+    left: 20;
+    top: 50;
+    margin-left: 20px;
+    padding: 2px 0px;
+    height: 600px;
+    width: 1200px;
+}

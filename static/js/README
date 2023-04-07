@@ -1,0 +1,43 @@
+# New York Vehicle Collisions
+
+Car accidents are a significant public safety concern, resulting in thousands of injuries and fatalities every year. In New York, the problem is particularly severe, with hundreds of thousands of accidents reported annually. This dataset offers a comprehensive view of car accidents in New York, including location, time of day, and severity.
+
+## Overview
+The project's primary goal is to analyze this data and gain insights into the factors contributing to car accidents while identifying areas where safety measures can be improved. The ultimate objective is to establish a more comprehensive understanding of car accidents in New York, promote safer driving practices, and reduce the number of accidents in the city.
+
+## Built with:
+-Flask
+-HTML
+-CSS
+-JavaScript
+-D3
+
+## Installation
+To run the app:
+
+1. Git clone - git@github.com:yashkansal97/nyc-traffic-collisions-analysis.git
+2. CD into directory - nyc-traffic-collisions-analysis
+3. Start Flask app with python app.py
+4. Visit localhost:5000 in a browser
+
+
+## Implementation Details
+This repository provides a collection of scripts and files that demonstrate the project's key features. These features include:
+
+ETL.ipynb - perform ETL, which includes:
+Reading from a csv
+Merging data from data acquired externally
+Using separate JavaScript files to render different visualizations 
+app.py - two endpoints, which include:
+/data endpoint that reads from a local SQLite database and returning a jsonified result
+/ endpoint that returns the rendered index.html
+
+## Credits
+-New York Open Data 
+-Geological survey data
+-D3.js documentation: https://d3js.org
+-Leaflet.js
+-Moment.js
+-Plotly.js
+
+
